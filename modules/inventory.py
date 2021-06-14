@@ -2,7 +2,7 @@ import csv
 
 class Inventory:
     
-    def __init__(self,id,title,rating,copies_available):
+    def __init__(self, id, title, rating, copies_available):
         self.id = id
         self.title = title
         self.rating = rating
@@ -17,7 +17,7 @@ class Inventory:
         """
     
     @classmethod
-    def get_all_inventories(cls):
+    def get_current_video_inventories(cls):
          with open("data/inventory.csv", 'r') as inventory_file:
             inventory_data = csv.DictReader(inventory_file)
             inventories = []
@@ -25,3 +25,5 @@ class Inventory:
                 inventories.append(Inventory(**line).__dict__)
         
             return inventories
+    def rent_video(self, title):
+        pass

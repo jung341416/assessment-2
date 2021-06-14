@@ -26,3 +26,17 @@ class Customer:
                 customers.append(Customer(**line).__dict__)
         
             return customers
+
+    def customer_current_rented_video(self, id):
+        customer_data = Customer.get_all_customers()
+        customer_rented_video = ""
+        for customer in customer_data:
+            for key in customer:
+                if customer['id'] == id:
+                    if customer['rented_videos'] == "":
+                        customer_rented_video = f"{customer['first_name']} didn't rent out anything"
+                    else:    
+                        customer_rented_video = customer['rented_videos']
+        return customer_rented_video
+    def rent_video(self, id):
+        pass
