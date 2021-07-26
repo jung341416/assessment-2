@@ -6,7 +6,13 @@ class Customer:
         self.first_name = first_name
         self.last_name = last_name
         self.current_video_rentals = current_video_rentals
-
+    def __str__(self):
+        return f"""
+            ID: {self.id}
+            FIRST_NAME: {self.first_name}
+            LAST_NAME: {self.last_name}
+            VIDEO_RENTED: {self.current_video_rentals}
+        """
         
     @classmethod
     def get_all_customers(cls):

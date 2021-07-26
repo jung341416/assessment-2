@@ -6,6 +6,13 @@ class Inventory:
         self.title = title
         self.rating = rating
         self.copies_available = copies_available
+    def __str__(self):
+        return f"""
+            ID: {self.id}
+            TITLE: {self.title}
+            RATING: {self.rating}
+            AVAILABLE_COPIES: {self.copies_available}
+            """
     @classmethod
     def get_all_inventories(cls):
         inventories = []

@@ -48,7 +48,7 @@ class Store:
         for inventory in self.inventories:
             if inventory.title == title and int(inventory.copies_available) >0:
                 inventory.copies_available = int(inventory.copies_available) - 1
-            elif inventory.title == title and int(inventory.copies_available) == 0:
+            elif title == inventory.title and int(inventory.copies_available) == 0:
                 print(f'{title} is not in stock!')
                 return
         self.save_change_inventory_data()
@@ -58,11 +58,11 @@ class Store:
                 customer.current_video_rentals += title
             elif customer.id == input_id and video_counts < 3:
                 customer.current_video_rentals += f"/{title}"
-            elif customer.id == input_id and video_counts >= 3:
+            elif customer.id == input_id and video_counts >= 3: 
                 print('customer can only have 3 maximum videos!')
         self.save_change_customer_data()
-        
-  
+   
+    
     
     
     def return_video_to_store(self, input_id, title):
